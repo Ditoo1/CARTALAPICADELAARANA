@@ -1,39 +1,31 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #1d1a45;
-    font-family: 'Arial', sans-serif;
-    overflow-y: hidden; /* Puedes quitar esto si deseas mostrar la barra de desplazamiento vertical */
+    background-color: #1d1a45; /* COLOR FONDO */
+    overflow-y: hidden; /* Oculta la barra de desplazamiento vertical */
 }
 
-.image-container {
-    width: 100%;
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-ul.image-list {
+ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Cambia a dirección vertical */
+    height: 100vh; /* Establece la altura al 100% del viewport */
+    overflow-y: scroll; /* Permite el desplazamiento vertical */
+    scroll-snap-type: y mandatory; /* Habilita el scroll snap vertical */
 }
 
 li {
     width: 100%;
-    max-width: 800px;
-    margin: 10px auto; /* Centra la caja de imágenes horizontalmente */
-    flex: 0 0 auto;
-    scroll-snap-align: start;
+    max-width: 800px; /* ANCHO MAXIMO */
+    margin: 10px;
+    flex: 0 0 auto; /* Evita que los elementos se estiren */
+    scroll-snap-align: start; /* Alinea el inicio de cada li con el contenedor */
 }
 
 img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 10px; /* ROUND BORDER */
 }
