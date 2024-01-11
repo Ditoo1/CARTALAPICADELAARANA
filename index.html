@@ -23,6 +23,7 @@
             align-items: center;
             height: 100vh;
             overflow-y: scroll;
+            scroll-snap-type: y mandatory; /* Asegura un desplazamiento suave */
         }
 
         li {
@@ -32,6 +33,7 @@
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 0.8s, transform 0.8s;
+            scroll-snap-align: start; /* Alinea los elementos con el inicio del contenedor */
         }
 
         li.active {
@@ -54,36 +56,8 @@
         <li class="slide">
             <img src="CARTA-02.jpg" alt="Plato 2">
         </li>
-        <li class="slide">
-            <img src="CARTA-03.jpg" alt="Plato 3">
-        </li>
-        <li class="slide">
-            <img src="CARTA-04.jpg" alt="Plato 4">
-        </li>
-        <li class="slide">
-            <img src="CARTA-05.jpg" alt="Plato 5">
-        </li>
-        <li class="slide">
-            <img src="CARTA-06.jpg" alt="Plato 6">
-        </li>
-        <li class="slide">
-            <img src="CARTA-07.jpg" alt="Plato 7">
-        </li>
-        <li class="slide">
-            <img src="CARTA-08.jpg" alt="Plato 8">
-        </li>
-        <li class="slide">
-            <img src="CARTA-09.jpg" alt="Plato 9">
-        </li>
-        <li class="slide">
-            <img src="CARTA-10.jpg" alt="Plato 10">
-        </li>
-        <li class="slide">
-            <img src="CARTA-11.jpg" alt="Plato 11">
-        </li>
-        <li class="slide">
-            <img src="CARTA-12.jpg" alt="Plato 12">
-        </li>
+        <!-- Agrega más imágenes en formato JPG para cada plato -->
+        <!-- ... -->
     </ul>
 
     <script>
@@ -94,17 +68,27 @@
                 const windowHeight = window.innerHeight || document.documentElement.clientHeight;
                 if (rect.top <= windowHeight / 1.5 && rect.bottom >= 0) {
                     element.classList.add('active');
-                } else {
-                    element.classList.remove('active');
                 }
             });
         }
 
-        // Activa los elementos al cargar la página
         activateElements();
 
-        // Activa los elementos al hacer scroll
-        window.addEventListener('scroll', activateElements);
+        let currentSlide = 0;
+
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.slide');
+            elements.forEach((element, index) => {
+                const rect = element.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                const isVisible = rect.top <= windowHeight / 1.5 && rect.bottom >= 0;
+                if (isVisible && index !== currentSlide) {
+                    elements[currentSlide].classList.remove('active');
+                    currentSlide = index;
+                    elements[currentSlide].classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
