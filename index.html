@@ -18,6 +18,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            transition: transform 0.5s ease-in-out; /* Añadido para la transición suave */
         }
 
         li {
@@ -34,7 +35,7 @@
     </style>
 </head>
 <body>
-    <ul>
+    <ul id="image-list">
         <li><img src="CARTA-01.jpg"></li>
         <li><img src="CARTA-02.jpg"></li>
         <li><img src="CARTA-03.jpg"></li>
@@ -48,5 +49,26 @@
         <li><img src="CARTA-11.jpg"></li>
         <li><img src="CARTA-12.jpg"></li>
     </ul>
+
+    <script>
+        // Añadido script para gestionar el evento de scroll
+        const imageList = document.getElementById('image-list');
+
+        window.addEventListener('wheel', (event) => {
+            event.preventDefault();
+
+            const deltaY = event.deltaY;
+            const currentTransform = getComputedStyle(imageList).transform;
+
+            // Obtener el índice actual de la imagen visible
+            const currentIndex = Math.round(Math.abs(parseInt(currentTransform.split(',')[1]))) / window.innerHeight;
+
+            // Calcular el nuevo índice de la imagen basándonos en la dirección del scroll
+            const newIndex = deltaY > 0 ? Math.ceil(currentIndex) : Math.floor(currentIndex);
+
+            // Aplicar la transformación para mostrar la imagen correspondiente
+            imageList.style.transform = `translateY(-${newIndex * 100}vh)`;
+        });
+    </script>
 </body>
 </html>
