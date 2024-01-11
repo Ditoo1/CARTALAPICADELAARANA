@@ -19,12 +19,12 @@
             flex-direction: row; /* Cambiado a fila para que las imágenes estén una al lado de la otra */
             overflow-x: scroll; /* Habilitar desplazamiento horizontal */
             scroll-snap-type: x mandatory; /* Activar el scroll snap horizontal */
-            scroll-behavior: smooth; /* Agregado para un desplazamiento suave */
+            scroll-behavior: smooth; /* Hacer que el scroll sea suave */
         }
 
         li {
             flex: 0 0 100%; /* Hacer que cada elemento li ocupe el 100% del contenedor ul */
-            scroll-snap-align: center; /* Centrar cada imagen en el contenedor durante el scroll snap */
+            scroll-snap-align: start; /* Alinear cada imagen al inicio del contenedor durante el scroll snap */
             margin: 10px;
         }
 
