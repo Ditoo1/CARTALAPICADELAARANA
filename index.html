@@ -9,7 +9,6 @@
             margin: 0;
             padding: 0;
             background-color: #1d1a45; /* COLOR FONDO */
-            overflow: hidden; /* Evitar que aparezca la barra de desplazamiento vertical */
         }
 
         ul {
@@ -17,28 +16,21 @@
             padding: 0;
             margin: 0;
             display: flex;
-            flex-direction: column; /* Cambiado a columna para que las imágenes estén una encima de la otra */
-            overflow-y: scroll; /* Habilitar desplazamiento vertical */
-            scroll-snap-type: y mandatory; /* Activar el scroll snap vertical */
-            height: 100vh; /* Ajustar la altura del contenedor a la altura de la ventana */
-            scroll-padding: 50vh; /* Agregar espacio en la parte superior e inferior de cada imagen */
+            flex-direction: row; /* Cambiado a fila para que las imágenes estén una al lado de la otra */
+            overflow-x: scroll; /* Habilitar desplazamiento horizontal */
+            scroll-snap-type: x mandatory; /* Activar el scroll snap horizontal */
         }
 
         li {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh; /* Ajustar la altura de cada elemento li a la altura de la ventana */
+            flex: 0 0 100%; /* Hacer que cada elemento li ocupe el 100% del contenedor ul */
             scroll-snap-align: start; /* Alinear cada imagen al inicio del contenedor durante el scroll snap */
-            scroll-snap-stop: always; /* Hacer que cada imagen se centre en la pantalla al hacer scroll */
             margin: 10px;
         }
 
         img {
-            max-width: 100%;
-            max-height: 100%;
+            width: 100%;
+            height: auto;
             border-radius: 10px; /* Bordes redondeados */
-            object-fit: contain; /* Ajustar la imagen manteniendo su relación de aspecto */
         }
     </style>
 </head>
@@ -57,21 +49,5 @@
         <li><img src="CARTA-11.jpg"></li>
         <li><img src="CARTA-12.jpg"></li>
     </ul>
-
-    <script>
-        // Asegurarse de que la página comience en la parte superior
-        window.onload = function() {
-            window.scrollTo(0, 0);
-        };
-
-        // Ajustar el desplazamiento al hacer scroll
-        document.querySelector('ul').addEventListener('scroll', function() {
-            const liHeight = document.querySelector('li').offsetHeight;
-            const scrollTop = document.querySelector('ul').scrollTop;
-            const newIndex = Math.floor((scrollTop + liHeight / 2) / liHeight);
-            const newScrollTop = newIndex * liHeight;
-            document.querySelector('ul').scrollTop = newScrollTop;
-        });
-    </script>
 </body>
 </html>
