@@ -22,7 +22,7 @@
             flex-direction: column;
             align-items: center;
             height: 100vh;
-            overflow-y: hidden; /* Cambiado a hidden para simular el cambio de página */
+            overflow-y: hidden;
         }
 
         li {
@@ -73,21 +73,25 @@
         activateElements();
 
         let currentSlide = 0;
+        let touchStartY = 0;
 
-        window.addEventListener('scroll', () => {
-            const elements = document.querySelectorAll('.slide');
-            elements.forEach((element, index) => {
-                const rect = element.getBoundingClientRect();
-                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-                const isVisible = rect.top <= windowHeight / 1.5 && rect.bottom >= 0;
-                if (isVisible && index !== currentSlide) {
-                    elements[currentSlide].classList.remove('active');
-                    currentSlide = index;
-                    elements[currentSlide].classList.add('active');
-                    // Desplaza a la siguiente página (ajusta según sea necesario)
-                    window.scrollBy(0, windowHeight);
-                }
-            });
+        window.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        });
+
+        window.addEventListener('touchend', (e) => {
+            const touchEndY = e.changedTouches[0].clientY;
+            const deltaY = touchEndY - touchStartY;
+
+            if (deltaY > 0 && currentSlide > 0) {
+                // Desplaza a la parte superior de la página anterior
+                currentSlide--;
+                window.scrollTo(0, currentSlide * window.innerHeight);
+            } else if (deltaY < 0 && currentSlide < elements.length - 1) {
+                // Desplaza a la parte superior de la siguiente página
+                currentSlide++;
+                window.scrollTo(0, currentSlide * window.innerHeight);
+            }
         });
     </script>
 </body>
