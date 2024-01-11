@@ -63,6 +63,15 @@
         window.onload = function() {
             window.scrollTo(0, 0);
         };
+
+        // Ajustar el desplazamiento al hacer scroll
+        document.querySelector('ul').addEventListener('scroll', function() {
+            const liHeight = document.querySelector('li').offsetHeight;
+            const scrollTop = document.querySelector('ul').scrollTop;
+            const newIndex = Math.floor((scrollTop + liHeight / 2) / liHeight);
+            const newScrollTop = newIndex * liHeight;
+            document.querySelector('ul').scrollTop = newScrollTop;
+        });
     </script>
 </body>
 </html>
