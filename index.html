@@ -9,7 +9,8 @@
             margin: 0;
             padding: 0;
             background-color: #1d1a45; /*COLOR FONDO */
-            overflow-y: hidden; /* Evitar scroll predeterminado */
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory; /* Configuración del scroll snap */
         }
 
         ul {
@@ -19,13 +20,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: transform 0.5s ease; /* Agregamos transición para suavizar el movimiento */
+            scroll-snap-type: y mandatory; /* Configuración del scroll snap */
         }
 
         li {
             width: 100%;
             max-width: 800px; /* ANCHO MAXIMO */
             margin: 10px;
+            scroll-snap-align: start; /* Configuración del scroll snap */
         }
 
         img {
@@ -36,7 +38,7 @@
     </style>
 </head>
 <body>
-<ul id="imageList">
+<ul>
     <li><img src="CARTA-01.jpg"></li>
     <li><img src="CARTA-02.jpg"></li>
     <li><img src="CARTA-03.jpg"></li>
@@ -50,26 +52,5 @@
     <li><img src="CARTA-11.jpg"></li>
     <li><img src="CARTA-12.jpg"></li>
 </ul>
-
-<script>
-    const imageList = document.getElementById('imageList');
-    let currentIndex = 0;
-
-    // Función para manejar el evento de scroll
-    function handleScroll(event) {
-        const deltaY = event.deltaY;
-        const windowHeight = window.innerHeight;
-
-        // Actualizar el índice de la imagen actual
-        currentIndex = Math.min(Math.max(currentIndex + Math.sign(deltaY), 0), imageList.children.length - 1);
-
-        // Calcular el nuevo desplazamiento
-        const translateY = -currentIndex * windowHeight;
-        imageList.style.transform = `translateY(${translateY}px)`;
-    }
-
-    // Agregar el evento de scroll al documento
-    document.addEventListener('wheel', handleScroll);
-</script>
 </body>
 </html>
