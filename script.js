@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
   const flipbook = document.querySelector('.flipbook-container');
-  let flip = false;
   let currentPage = 1;
 
   flipbook.addEventListener('click', function () {

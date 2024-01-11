@@ -30,13 +30,13 @@ body {
 }
 
 #page2 {
-  transform: rotateY(180deg);
+  transform: rotateY(-180deg);
 }
 
 #page3 {
-  transform: rotateY(360deg);
+  transform: rotateY(-360deg);
 }
 
 #page4 {
-  transform: rotateY(540deg);
+  transform: rotateY(-540deg);
 }
