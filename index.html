@@ -20,6 +20,7 @@
             text-align: center;
             opacity: 1;
             transition: opacity 1s ease-in-out;
+            z-index: 1; /* Asegura que la pantalla de carga esté por encima de la lista de imágenes */
         }
 
         .logo {
@@ -52,6 +53,12 @@
             overflow-x: scroll;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
+            position: absolute; /* Asegura que la lista de imágenes se coloque correctamente */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0; /* Asegura que la lista de imágenes esté detrás de la pantalla de carga */
         }
 
         li {
