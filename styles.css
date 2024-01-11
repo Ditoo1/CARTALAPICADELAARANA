@@ -1,7 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #1d1a45; /*COLOR FONDO */
+    background-color: #1d1a45; /* COLOR FONDO */
+    overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
 }
 
 ul {
@@ -9,14 +10,17 @@ ul {
     padding: 0;
     margin: 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row; /* Cambia a dirección horizontal */
+    overflow-x: scroll; /* Permite el desplazamiento horizontal */
+    scroll-snap-type: x mandatory; /* Habilita el scroll snap horizontal */
 }
 
 li {
     width: 100%;
     max-width: 800px; /* ANCHO MAXIMO */
     margin: 10px;
+    flex: 0 0 auto; /* Evita que los elementos se estiren */
+    scroll-snap-align: start; /* Alinea el inicio de cada li con el contenedor */
 }
 
 img {
