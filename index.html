@@ -8,9 +8,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #1d1a45; /*COLOR FONDO */
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory; /* Configuración del scroll snap */
+            background-color: #1d1a45; /* COLOR FONDO */
         }
 
         ul {
@@ -18,22 +16,22 @@
             padding: 0;
             margin: 0;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            scroll-snap-type: y mandatory; /* Configuración del scroll snap */
+            flex-direction: column; /* Cambiado a columna para que las imágenes estén una encima de la otra */
+            overflow-y: scroll; /* Habilitar desplazamiento vertical */
+            scroll-snap-type: y mandatory; /* Activar el scroll snap vertical */
+            height: 100vh; /* Ajustar la altura del contenedor a la altura de la ventana */
         }
 
         li {
-            width: 100%;
-            max-width: 800px; /* ANCHO MAXIMO */
+            height: 100vh; /* Ajustar la altura de cada elemento li a la altura de la ventana */
+            scroll-snap-align: start; /* Alinear cada imagen al inicio del contenedor durante el scroll snap */
             margin: 10px;
-            scroll-snap-align: start; /* Configuración del scroll snap */
         }
 
         img {
             width: 100%;
             height: auto;
-            border-radius: 10px; /* ROUND BORDER */
+            border-radius: 10px; /* Bordes redondeados */
         }
     </style>
 </head>
