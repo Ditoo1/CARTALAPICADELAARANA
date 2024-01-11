@@ -18,6 +18,8 @@
 
         .loading-container {
             text-align: center;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
         }
 
         .logo {
@@ -45,7 +47,7 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            display: flex;
+            display: none; /* Inicialmente oculta la lista de imágenes */
             flex-direction: row;
             overflow-x: scroll;
             scroll-snap-type: x mandatory;
@@ -63,6 +65,11 @@
             height: auto;
             border-radius: 10px;
         }
+
+        /* Clase para mostrar la lista de imágenes después de la carga */
+        .loaded {
+            display: flex;
+        }
     </style>
 </head>
 <body>
@@ -70,7 +77,8 @@
         <img class="logo" src="logo.png" alt="Logo">
         <div class="spinner"></div>
     </div>
-    <ul>
+
+    <ul id="image-list" class="loaded">
         <li><img src="CARTA-01.jpg"></li>
         <li><img src="CARTA-02.jpg"></li>
         <li><img src="CARTA-03.jpg"></li>
@@ -84,5 +92,14 @@
         <li><img src="CARTA-11.jpg"></li>
         <li><img src="CARTA-12.jpg"></li>
     </ul>
+
+    <script>
+        // Simula la carga de imágenes después de un tiempo (puedes reemplazar esto con tu lógica de carga real)
+        setTimeout(function() {
+            // Muestra la lista de imágenes y oculta la pantalla de carga
+            document.getElementById('image-list').classList.add('loaded');
+            document.querySelector('.loading-container').style.opacity = 0;
+        }, 3000); // Ajusta el tiempo de simulación según sea necesario
+    </script>
 </body>
 </html>
