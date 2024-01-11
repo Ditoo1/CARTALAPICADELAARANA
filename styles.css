@@ -40,6 +40,7 @@ img {
     align-items: center;
     justify-content: center;
     z-index: 9999;
+    transition: opacity 1s ease-out; /* Agrega una transición de opacidad */
 }
 
 #loader {
@@ -54,4 +55,9 @@ img {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+#loader-wrapper.hidden {
+    opacity: 0;
+    pointer-events: none; /* Evita interacción con la pantalla de carga oculta */
 }
