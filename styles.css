@@ -1,7 +1,13 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #1d1a45; /* COLOR FONDO */
+    background-color: #1d1a45; /*COLOR FONDO */
+}
+
+.scrollbox {
+    max-width: 800px; /* ANCHO MAXIMO */
+    margin: 10px auto; /* Centra la caja de desplazamiento */
+    overflow: auto; /* Agrega la capacidad de desplazamiento */
 }
 
 ul {
@@ -9,16 +15,13 @@ ul {
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap; /* Añadido para que los elementos se envuelvan en líneas */
-    justify-content: center; /* Añadido para centrar los elementos */
-    max-width: 800px; /* ANCHO MAXIMO DE LA SCROLLBOX */
-    overflow-y: auto; /* Añadido para habilitar el desplazamiento vertical */
-    height: 9vw; /* ALTURA DE LA SCROLLBOX, 9 veces el ancho de la ventana */
+    flex-direction: column;
+    align-items: center;
 }
 
 li {
     width: 100%;
-    max-width: 800px; /* ANCHO MAXIMO DE LAS IMÁGENES */
+    max-width: 100%; /* Modificado para adaptarse al contenedor */
     margin: 10px;
 }
 
