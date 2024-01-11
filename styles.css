@@ -2,6 +2,10 @@ body {
     margin: 0;
     padding: 0;
     background-color: #1d1a45; /* COLOR FONDO */
+    display: flex;
+    align-items: center; /* Centra verticalmente en el eje Y */
+    justify-content: center; /* Centra horizontalmente en el eje X */
+    height: 100vh;
     overflow-y: hidden; /* Oculta la barra de desplazamiento vertical */
 }
 
@@ -10,9 +14,8 @@ ul {
     padding: 0;
     margin: 0;
     display: flex;
-    height: 100vh; /* Establece la altura al 100% del viewport */
-    overflow-x: scroll; /* Permite el desplazamiento vertical */
-    scroll-snap-type: x proximity; /* Habilita el scroll snap vertical */
+    overflow-x: scroll; /* Permite el desplazamiento horizontal */
+    scroll-snap-type: x proximity; /* Habilita el scroll snap horizontal */
 }
 
 li {
