@@ -1,42 +1,31 @@
 body {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    background-color: #1d1a45; /* COLOR FONDO */
+    overflow-y: hidden; /* Oculta la barra de desplazamiento vertical */
 }
 
-.flipbook-container {
-  width: 200px;
-  height: 300px;
-  perspective: 1000px;
-  position: relative;
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Cambia a dirección vertical */
+    height: 100vh; /* Establece la altura al 100% del viewport */
+    overflow-y: scroll; /* Permite el desplazamiento vertical */
+    scroll-snap-type: y mandatory; /* Habilita el scroll snap vertical */
 }
 
-.page {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  backface-visibility: hidden;
-  transform-origin: left center;
-  transition: transform 0.5s;
+li {
+    width: 100%;
+    max-width: 800px; /* ANCHO MAXIMO */
+    margin: 10px;
+    flex: 0 0 auto; /* Evita que los elementos se estiren */
+    scroll-snap-align: start; /* Alinea el inicio de cada li con el contenedor */
 }
 
-#page2 {
-  transform: rotateY(-180deg);
-}
-
-#page3 {
-  transform: rotateY(-360deg);
-}
-
-#page4 {
-  transform: rotateY(-540deg);
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* ROUND BORDER */
 }
