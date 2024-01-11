@@ -1,12 +1,12 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #1d1a45; /* COLOR FONDO */
+    background-color: #1d1a45;
     display: flex;
-    align-items: center; /* Centra verticalmente en el eje Y */
-    justify-content: center; /* Centra horizontalmente en el eje X */
+    align-items: center;
+    justify-content: center;
     height: 100vh;
-    overflow-y: hidden; /* Oculta la barra de desplazamiento vertical */
+    overflow-y: hidden;
 }
 
 ul {
@@ -14,16 +14,16 @@ ul {
     padding: 0;
     margin: 0;
     display: flex;
-    overflow-x: scroll; /* Permite el desplazamiento horizontal */
-    scroll-snap-type: x proximity; /* Habilita el scroll snap horizontal */
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
 }
 
 li {
     width: 100%;
     max-width: 800px; /* ANCHO MAXIMO */
     margin: 10px;
-    flex: 0 0 auto; /* Evita que los elementos se estiren */
-    scroll-snap-align: start; /* Alinea el inicio de cada li con el contenedor */
+    flex: 0 0 auto;
+    scroll-snap-align: start;
 }
 
 img {
