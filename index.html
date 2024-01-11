@@ -8,7 +8,8 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #1d1a45; /* COLOR FONDO */
+            background-color: #1d1a45; /*COLOR FONDO */
+            overflow-y: hidden; /* Evitar scroll predeterminado */
         }
 
         ul {
@@ -16,27 +17,26 @@
             padding: 0;
             margin: 0;
             display: flex;
-            flex-direction: row; /* Cambiado a fila para que las imágenes estén una al lado de la otra */
-            overflow-x: scroll; /* Habilitar desplazamiento horizontal */
-            scroll-snap-type: y mandatory; /* Activar el scroll snap horizontal */
-            scroll-behavior: smooth; /* Agregado desplazamiento suave */
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.5s ease; /* Agregamos transición para suavizar el movimiento */
         }
 
         li {
-            flex: 0 0 100%; /* Hacer que cada elemento li ocupe el 100% del contenedor ul */
-            scroll-snap-align: center; /* Alinear cada imagen al centro del contenedor durante el scroll snap */
+            width: 100%;
+            max-width: 800px; /* ANCHO MAXIMO */
             margin: 10px;
         }
 
         img {
             width: 100%;
             height: auto;
-            border-radius: 10px; /* Bordes redondeados */
+            border-radius: 10px; /* ROUND BORDER */
         }
     </style>
 </head>
 <body>
-<ul>
+<ul id="imageList">
     <li><img src="CARTA-01.jpg"></li>
     <li><img src="CARTA-02.jpg"></li>
     <li><img src="CARTA-03.jpg"></li>
@@ -52,16 +52,24 @@
 </ul>
 
 <script>
-    // JavaScript para desplazamiento suave
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+    const imageList = document.getElementById('imageList');
+    let currentIndex = 0;
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+    // Función para manejar el evento de scroll
+    function handleScroll(event) {
+        const deltaY = event.deltaY;
+        const windowHeight = window.innerHeight;
+
+        // Actualizar el índice de la imagen actual
+        currentIndex = Math.min(Math.max(currentIndex + Math.sign(deltaY), 0), imageList.children.length - 1);
+
+        // Calcular el nuevo desplazamiento
+        const translateY = -currentIndex * windowHeight;
+        imageList.style.transform = `translateY(${translateY}px)`;
+    }
+
+    // Agregar el evento de scroll al documento
+    document.addEventListener('wheel', handleScroll);
 </script>
 </body>
 </html>
