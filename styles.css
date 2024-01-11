@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1d1a45; /*COLOR FONDO */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li {
+    width: 100%;
+    max-width: 800px; /* ANCHO MAXIMO */
+    margin: 10px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* ROUND BORDER */
+}
