@@ -22,19 +22,21 @@
             flex-direction: column;
             align-items: center;
             height: 100vh;
-            overflow-y: scroll;
+            overflow-y: hidden; /* Cambiado a hidden para simular el cambio de página */
         }
 
         li {
             width: 100%;
             height: 100vh;
             text-align: center;
-            opacity: 0.2; /* Opacidad reducida para las imágenes no activas */
-            transition: opacity 0.8s;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s, transform 0.8s;
         }
 
         li.active {
-            opacity: 1; /* Opacidad completa para la imagen activa */
+            opacity: 1;
+            transform: translateY(0);
         }
 
         img {
@@ -62,14 +64,31 @@
             elements.forEach((element) => {
                 const rect = element.getBoundingClientRect();
                 const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-                const isVisible = rect.top <= windowHeight / 1.5 && rect.bottom >= 0;
-                element.classList.toggle('active', isVisible);
+                if (rect.top <= windowHeight / 1.5 && rect.bottom >= 0) {
+                    element.classList.add('active');
+                }
             });
         }
 
         activateElements();
 
-        window.addEventListener('scroll', activateElements);
+        let currentSlide = 0;
+
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.slide');
+            elements.forEach((element, index) => {
+                const rect = element.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                const isVisible = rect.top <= windowHeight / 1.5 && rect.bottom >= 0;
+                if (isVisible && index !== currentSlide) {
+                    elements[currentSlide].classList.remove('active');
+                    currentSlide = index;
+                    elements[currentSlide].classList.add('active');
+                    // Desplaza a la siguiente página (ajusta según sea necesario)
+                    window.scrollBy(0, windowHeight);
+                }
+            });
+        });
     </script>
 </body>
 </html>
