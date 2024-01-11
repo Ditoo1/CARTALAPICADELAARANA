@@ -1,8 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #1d1a45; /* COLOR FONDO */
-    overflow-y: hidden; /* Oculta la barra de desplazamiento vertical */
+    background-color: #1d1a45;
+    overflow-y: hidden; /* Puedes quitar esto si deseas mostrar la barra de desplazamiento vertical */
 }
 
 ul {
@@ -10,22 +10,23 @@ ul {
     padding: 0;
     margin: 0;
     display: flex;
-    flex-direction: column; /* Cambia a dirección vertical */
-    height: 100vh; /* Establece la altura al 100% del viewport */
-    overflow-y: scroll; /* Permite el desplazamiento vertical */
-    scroll-snap-type: y mandatory; /* Habilita el scroll snap vertical */
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth; /* Agregamos un desplazamiento suave */
 }
 
 li {
     width: 100%;
-    max-width: 800px; /* ANCHO MAXIMO */
+    max-width: 800px;
     margin: 10px;
-    flex: 0 0 auto; /* Evita que los elementos se estiren */
-    scroll-snap-align: start; /* Alinea el inicio de cada li con el contenedor */
+    flex: 0 0 auto;
+    scroll-snap-align: start;
 }
 
 img {
     width: 100%;
     height: auto;
-    border-radius: 10px; /* ROUND BORDER */
+    border-radius: 10px;
 }
