@@ -11,6 +11,7 @@ body {
   width: 200px;
   height: 300px;
   perspective: 1000px;
+  position: relative;
 }
 
 .page {
@@ -23,11 +24,19 @@ body {
   background-color: #ffffff;
   border: 1px solid #ccc;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  backface-visibility: hidden;
   transform-origin: left center;
-  transform-style: preserve-3d;
   transition: transform 0.5s;
 }
 
 #page2 {
   transform: rotateY(180deg);
+}
+
+#page3 {
+  transform: rotateY(360deg);
+}
+
+#page4 {
+  transform: rotateY(540deg);
 }
