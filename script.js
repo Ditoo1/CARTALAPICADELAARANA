@@ -1,27 +1,16 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const container = document.querySelector(".container");
-    const pages = document.querySelectorAll(".page");
-    let currentPage = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const flipbook = document.querySelector('.flipbook-container');
+  let flip = false;
 
-    container.addEventListener("wheel", handleScroll);
+  flipbook.addEventListener('click', function () {
+    flip = !flip;
+    updateFlip();
+  });
 
-    function handleScroll(event) {
-        const delta = event.deltaY;
-
-        if (delta > 0 && currentPage < pages.length - 1) {
-            currentPage++;
-        } else if (delta < 0 && currentPage > 0) {
-            currentPage--;
-        }
-
-        scrollToPage(currentPage);
-    }
-
-    function scrollToPage(pageIndex) {
-        const scrollAmount = pageIndex * container.clientHeight;
-        container.scrollTo({
-            top: scrollAmount,
-            behavior: "smooth"
-        });
-    }
+  function updateFlip() {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => {
+      page.style.transform = flip ? 'rotateY(180deg)' : 'rotateY(0)';
+    });
+  }
 });
