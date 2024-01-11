@@ -19,11 +19,12 @@
             flex-direction: row; /* Cambiado a fila para que las imágenes estén una al lado de la otra */
             overflow-x: scroll; /* Habilitar desplazamiento horizontal */
             scroll-snap-type: x mandatory; /* Activar el scroll snap horizontal */
+            scroll-behavior: smooth; /* Agregado desplazamiento suave */
         }
 
         li {
             flex: 0 0 100%; /* Hacer que cada elemento li ocupe el 100% del contenedor ul */
-            scroll-snap-align: start; /* Alinear cada imagen al inicio del contenedor durante el scroll snap */
+            scroll-snap-align: center; /* Alinear cada imagen al centro del contenedor durante el scroll snap */
             margin: 10px;
         }
 
@@ -35,19 +36,32 @@
     </style>
 </head>
 <body>
-    <ul>
-        <li><img src="CARTA-01.jpg"></li>
-        <li><img src="CARTA-02.jpg"></li>
-        <li><img src="CARTA-03.jpg"></li>
-        <li><img src="CARTA-04.jpg"></li>
-        <li><img src="CARTA-05.jpg"></li>
-        <li><img src="CARTA-06.jpg"></li>
-        <li><img src="CARTA-07.jpg"></li>
-        <li><img src="CARTA-08.jpg"></li>
-        <li><img src="CARTA-09.jpg"></li>
-        <li><img src="CARTA-10.jpg"></li>
-        <li><img src="CARTA-11.jpg"></li>
-        <li><img src="CARTA-12.jpg"></li>
-    </ul>
+<ul>
+    <li><img src="CARTA-01.jpg"></li>
+    <li><img src="CARTA-02.jpg"></li>
+    <li><img src="CARTA-03.jpg"></li>
+    <li><img src="CARTA-04.jpg"></li>
+    <li><img src="CARTA-05.jpg"></li>
+    <li><img src="CARTA-06.jpg"></li>
+    <li><img src="CARTA-07.jpg"></li>
+    <li><img src="CARTA-08.jpg"></li>
+    <li><img src="CARTA-09.jpg"></li>
+    <li><img src="CARTA-10.jpg"></li>
+    <li><img src="CARTA-11.jpg"></li>
+    <li><img src="CARTA-12.jpg"></li>
+</ul>
+
+<script>
+    // JavaScript para desplazamiento suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
 </body>
 </html>
