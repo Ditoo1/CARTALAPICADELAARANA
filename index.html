@@ -11,7 +11,7 @@
             background-color: #1d1a45;
             color: #fff;
             font-family: 'Arial', sans-serif;
-            overflow: hidden; /* Evita la barra de desplazamiento vertical */
+            overflow: hidden;
         }
 
         ul {
@@ -21,56 +21,41 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 100vh; /* Establece la altura del contenedor al 100% de la ventana */
-            overflow-y: scroll; /* Habilita el desplazamiento vertical en el contenedor */
+            height: 100vh;
+            overflow-y: scroll;
         }
 
         li {
             width: 100%;
-            max-width: 800px;
-            margin: 10px;
+            height: 100vh;
             text-align: center;
-            opacity: 0; /* Inicialmente oculta los elementos */
-            transform: translateY(50px); /* Desplaza los elementos hacia abajo */
+            opacity: 0;
+            transform: translateY(50px);
             transition: opacity 0.8s, transform 0.8s;
         }
 
         li.active {
-            opacity: 1; /* Muestra los elementos cuando están activos */
+            opacity: 1;
             transform: translateY(0);
         }
 
         img {
             width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        p {
-            margin-top: 8px;
-        }
-
-        a {
-            text-decoration: none;
-            color: #ffd700;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 </head>
 <body>
     <ul id="slider">
         <li class="slide">
-            <a href="plato-1.html">
-                <img src="CARTA-01.png" alt="Plato 1">
-                <p>Descripción del Plato 1</p>
-            </a>
+            <img src="CARTA-01.jpg" alt="Plato 1">
         </li>
-        <!-- Agrega enlaces y descripciones para cada plato -->
+        <!-- Agrega imágenes en formato JPG para cada plato -->
         <!-- ... -->
     </ul>
 
     <script>
-        // Función para activar los elementos cuando están en el área visible
         function activateElements() {
             const elements = document.querySelectorAll('.slide');
             elements.forEach((element) => {
@@ -82,10 +67,8 @@
             });
         }
 
-        // Activa los elementos al cargar la página
         activateElements();
 
-        // Activa los elementos al hacer scroll
         window.addEventListener('scroll', activateElements);
     </script>
 </body>
