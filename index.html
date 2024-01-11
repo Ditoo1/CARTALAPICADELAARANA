@@ -9,49 +9,45 @@
             margin: 0;
             padding: 0;
             background-color: #1d1a45; /* Puedes cambiar el color de fondo según tus preferencias */
-            overflow: hidden; /* Oculta la barra de desplazamiento */
         }
 
-        .full-screen-image {
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            object-position: center;
-            transition: opacity 0.5s ease-in-out; /* Agrega transición de opacidad */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        li {
+            width: 100%;
+            max-width: 800px; /* Puedes ajustar el ancho máximo según tus preferencias */
+            margin: 10px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px; /* Añade bordes redondeados a las imágenes */
         }
     </style>
 </head>
 <body>
-    <div id="imageContainer">
-        <!-- La primera imagen se muestra a pantalla completa por defecto -->
-        <img src="CARTA-01.png" alt="Plato 1" class="full-screen-image" data-index="1">
-    </div>
-
-    <script>
-        // Función para cambiar la imagen al hacer scroll
-        function handleScroll() {
-            const windowHeight = window.innerHeight;
-            const currentIndex = Math.floor(window.scrollY / windowHeight) + 1;
-            const currentImage = document.querySelector(`[data-index="${currentIndex}"]`);
-
-            if (currentImage) {
-                currentImage.style.opacity = 1;
-            }
-        }
-
-        // Asignar la función al evento de desplazamiento
-        window.addEventListener('scroll', handleScroll);
-
-        // Cargar las imágenes restantes en el contenedor
-        for (let i = 2; i <= 12; i++) {
-            const img = new Image();
-            img.src = `CARTA-${i}.png`;
-            img.alt = `Plato ${i}`;
-            img.className = 'full-screen-image';
-            img.setAttribute('data-index', i);
-            img.style.opacity = 0; // Inicialmente ocultar las imágenes
-            document.getElementById('imageContainer').appendChild(img);
-        }
-    </script>
+    <ul>
+        <!-- Cambia el número del src y el alt para cada imagen -->
+        <li><img src="CARTA-01.png" alt="Plato 1"></li>
+        <li><img src="CARTA-02.png" alt="Plato 2"></li>
+        <li><img src="CARTA-03.png" alt="Plato 3"></li>
+        <li><img src="CARTA-04.png" alt="Plato 4"></li>
+        <li><img src="CARTA-05.png" alt="Plato 5"></li>
+        <li><img src="CARTA-06.png" alt="Plato 6"></li>
+        <li><img src="CARTA-07.png" alt="Plato 7"></li>
+        <li><img src="CARTA-08.png" alt="Plato 8"></li>
+        <li><img src="CARTA-09.png" alt="Plato 9"></li>
+        <li><img src="CARTA-10.png" alt="Plato 10"></li>
+        <li><img src="CARTA-11.png" alt="Plato 11"></li>
+        <li><img src="CARTA-12.png" alt="Plato 12"></li>
+    </ul>
 </body>
 </html>
