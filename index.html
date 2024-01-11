@@ -3,39 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La picá de la araña - Carta Digital -</title>
+    <title>La picá de la araña - Cargando...</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             background-color: #1d1a45; /* COLOR FONDO */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden; /* Evitar el desplazamiento antes de cargar la página completa */
         }
 
+        .loading-container {
+            text-align: center;
+        }
+
+        .logo {
+            width: 100px; /* Ajusta el tamaño según tus necesidades */
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .spinner {
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 8px solid #fff;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Estilo de la lista de imágenes después de la carga */
         ul {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
-            flex-direction: row; /* Cambiado a fila para que las imágenes estén una al lado de la otra */
-            overflow-x: scroll; /* Habilitar desplazamiento horizontal */
-            scroll-snap-type: x mandatory; /* Activar el scroll snap horizontal */
-            scroll-behavior: smooth; /* Suavizar el desplazamiento */
+            flex-direction: row;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
         }
 
         li {
-            flex: 0 0 100%; /* Hacer que cada elemento li ocupe el 100% del contenedor ul */
-            scroll-snap-align: start; /* Alinear cada imagen al inicio del contenedor durante el scroll snap */
+            flex: 0 0 100%;
+            scroll-snap-align: start;
             margin: 10px;
         }
 
         img {
             width: 100%;
             height: auto;
-            border-radius: 10px; /* Bordes redondeados */
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
+    <div class="loading-container">
+        <img class="logo" src="logo.png" alt="Logo">
+        <div class="spinner"></div>
+    </div>
     <ul>
         <li><img src="CARTA-01.jpg"></li>
         <li><img src="CARTA-02.jpg"></li>
