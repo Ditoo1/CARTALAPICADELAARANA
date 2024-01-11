@@ -1,33 +1,31 @@
-#loader-wrapper {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: #1d1a45;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1d1a45; /* COLOR FONDO */
+    overflow-y: hidden; /* Oculta la barra de desplazamiento vertical */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 1s ease-out; /* Agrega una transición de opacidad */
+    flex-direction: column; /* Cambia a dirección vertical */
+    height: 100vh; /* Establece la altura al 100% del viewport */
+    overflow-y: scroll; /* Permite el desplazamiento vertical */
+    scroll-snap-type: y mandatory; /* Habilita el scroll snap vertical */
 }
 
-#loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 1.5s linear infinite;
+li {
+    width: 100%;
+    max-width: 800px; /* ANCHO MAXIMO */
+    margin: 10px;
+    flex: 0 0 auto; /* Evita que los elementos se estiren */
+    scroll-snap-align: start; /* Alinea el inicio de cada li con el contenedor */
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Agrega una clase para ocultar la pantalla de carga */
-#loader-wrapper.hidden {
-    opacity: 0;
-    pointer-events: none; /* Evita interacción con la pantalla de carga oculta */
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* ROUND BORDER */
 }
