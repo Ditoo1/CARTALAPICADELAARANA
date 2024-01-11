@@ -20,7 +20,7 @@ li {
     width: 100%;
     max-width: 800px; /* ANCHO MAXIMO */
     margin: 10px;
-    scroll-snap-align: start; /* ALINEAR AL PRINCIPIO DEL CONTENIDO SCROLL-SNAP */
+    scroll-snap-align: center; /* ALINEAR AL PRINCIPIO DEL CONTENIDO SCROLL-SNAP */
 }
 
 img {
