@@ -48,11 +48,42 @@
 </head>
 <body>
     <ul id="slider">
-        <li class="slide">
+        <li class="slide active">
             <img src="CARTA-01.jpg" alt="Plato 1">
         </li>
-        <!-- Agrega imágenes en formato JPG para cada plato -->
-        <!-- ... -->
+        <li class="slide">
+            <img src="CARTA-02.jpg" alt="Plato 2">
+        </li>
+        <li class="slide">
+            <img src="CARTA-03.jpg" alt="Plato 3">
+        </li>
+        <li class="slide">
+            <img src="CARTA-04.jpg" alt="Plato 4">
+        </li>
+        <li class="slide">
+            <img src="CARTA-05.jpg" alt="Plato 5">
+        </li>
+        <li class="slide">
+            <img src="CARTA-06.jpg" alt="Plato 6">
+        </li>
+        <li class="slide">
+            <img src="CARTA-07.jpg" alt="Plato 7">
+        </li>
+        <li class="slide">
+            <img src="CARTA-08.jpg" alt="Plato 8">
+        </li>
+        <li class="slide">
+            <img src="CARTA-09.jpg" alt="Plato 9">
+        </li>
+        <li class="slide">
+            <img src="CARTA-10.jpg" alt="Plato 10">
+        </li>
+        <li class="slide">
+            <img src="CARTA-11.jpg" alt="Plato 11">
+        </li>
+        <li class="slide">
+            <img src="CARTA-12.jpg" alt="Plato 12">
+        </li>
     </ul>
 
     <script>
@@ -63,12 +94,16 @@
                 const windowHeight = window.innerHeight || document.documentElement.clientHeight;
                 if (rect.top <= windowHeight / 1.5 && rect.bottom >= 0) {
                     element.classList.add('active');
+                } else {
+                    element.classList.remove('active');
                 }
             });
         }
 
+        // Activa los elementos al cargar la página
         activateElements();
 
+        // Activa los elementos al hacer scroll
         window.addEventListener('scroll', activateElements);
     </script>
 </body>
