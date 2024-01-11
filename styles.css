@@ -12,8 +12,8 @@ ul {
     display: flex;
     flex-direction: column; /* Cambia a dirección vertical */
     height: 100vh; /* Establece la altura al 100% del viewport */
-    overflow-y: scroll; /* Permite el desplazamiento vertical */
-    scroll-snap-type: y mandatory; /* Habilita el scroll snap vertical */
+    overflow-x: scroll; /* Permite el desplazamiento vertical */
+    scroll-snap-type: x mandatory; /* Habilita el scroll snap vertical */
 }
 
 li {
