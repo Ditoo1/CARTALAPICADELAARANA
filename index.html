@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La picá de la araña - Carta Digital -</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             margin: 0;
             padding: 0;
             background-color: #1d1a45; /*COLOR FONDO */
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
         }
 
         ul {
@@ -18,7 +21,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: transform 0.5s ease-in-out; /* Añadido para la transición suave */
         }
 
         li {
@@ -35,40 +37,21 @@
     </style>
 </head>
 <body>
-    <ul id="image-list">
-        <li><img src="CARTA-01.jpg"></li>
-        <li><img src="CARTA-02.jpg"></li>
-        <li><img src="CARTA-03.jpg"></li>
-        <li><img src="CARTA-04.jpg"></li>
-        <li><img src="CARTA-05.jpg"></li>
-        <li><img src="CARTA-06.jpg"></li>
-        <li><img src="CARTA-07.jpg"></li>
-        <li><img src="CARTA-08.jpg"></li>
-        <li><img src="CARTA-09.jpg"></li>
-        <li><img src="CARTA-10.jpg"></li>
-        <li><img src="CARTA-11.jpg"></li>
-        <li><img src="CARTA-12.jpg"></li>
+    <ul>
+        <li><img src="CARTA-01.jpg" id="section-1"></li>
+        <li><img src="CARTA-02.jpg" id="section-2"></li>
+        <li><img src="CARTA-03.jpg" id="section-3"></li>
+        <li><img src="CARTA-04.jpg" id="section-4"></li>
+        <li><img src="CARTA-05.jpg" id="section-5"></li>
+        <li><img src="CARTA-06.jpg" id="section-6"></li>
+        <li><img src="CARTA-07.jpg" id="section-7"></li>
+        <li><img src="CARTA-08.jpg" id="section-8"></li>
+        <li><img src="CARTA-09.jpg" id="section-9"></li>
+        <li><img src="CARTA-10.jpg" id="section-10"></li>
+        <li><img src="CARTA-11.jpg" id="section-11"></li>
+        <li><img src="CARTA-12.jpg" id="section-12"></li>
     </ul>
 
-    <script>
-        // Añadido script para gestionar el evento de scroll
-        const imageList = document.getElementById('image-list');
-
-        window.addEventListener('wheel', (event) => {
-            event.preventDefault();
-
-            const deltaY = event.deltaY;
-            const currentTransform = getComputedStyle(imageList).transform;
-
-            // Obtener el índice actual de la imagen visible
-            const currentIndex = Math.round(Math.abs(parseInt(currentTransform.split(',')[1]))) / window.innerHeight;
-
-            // Calcular el nuevo índice de la imagen basándonos en la dirección del scroll
-            const newIndex = deltaY > 0 ? Math.ceil(currentIndex) : Math.floor(currentIndex);
-
-            // Aplicar la transformación para mostrar la imagen correspondiente
-            imageList.style.transform = `translateY(-${newIndex * 100}vh)`;
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
