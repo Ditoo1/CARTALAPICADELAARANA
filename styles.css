@@ -7,7 +7,7 @@ body {
 
 ul {
     list-style: none;
-    padding: 50px 0; /* Ajusta el padding superior e inferior para crear espacio */
+    padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column; /* Cambia a dirección vertical */
@@ -19,7 +19,7 @@ ul {
 li {
     width: 100%;
     max-width: 800px; /* ANCHO MAXIMO */
-    margin: 20px 0; /* Ajusta el margen superior e inferior para crear espacio */
+    margin: 10px 10px 10px 10px; /* Margen en formato top right bottom left */
     flex: 0 0 auto; /* Evita que los elementos se estiren */
     scroll-snap-align: start; /* Alinea el inicio de cada li con el contenedor */
 }
