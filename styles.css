@@ -20,7 +20,7 @@ ul {
 
 li {
     width: 100%;
-    max-width: 800px; /* ANCHO MAXIMO */
+    max-width: 800px; /* ANCHO */
     margin: 10px;
     flex: 0 0 auto;
     scroll-snap-align: start;
