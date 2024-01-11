@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             background-color: #1d1a45; /* Puedes cambiar el color de fondo según tus preferencias */
-            scroll-behavior: smooth; /* Agrega transición suave al desplazamiento */
+            overflow: hidden; /* Evita la barra de desplazamiento vertical */
         }
 
         ul {
@@ -19,18 +19,24 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            height: 100vh; /* Establece la altura del 100% de la ventana de visualización */
         }
 
         li {
             width: 100%;
-            max-width: 800px; /* Puedes ajustar el ancho máximo según tus preferencias */
-            margin: 10px;
+            height: 100vh; /* Establece la altura del 100% de la ventana de visualización */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
 
         img {
-            width: 100%;
-            height: auto;
+            width: auto;
+            height: 100%;
             border-radius: 10px; /* Añade bordes redondeados a las imágenes */
+            object-fit: cover; /* Ajusta la imagen para cubrir completamente el contenedor */
         }
     </style>
 </head>
@@ -50,5 +56,31 @@
         <li><img src="CARTA-11.png" alt="Plato 11"></li>
         <li><img src="CARTA-12.png" alt="Plato 12"></li>
     </ul>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const images = document.querySelectorAll("li");
+            let currentIndex = 0;
+
+            function showImage(index) {
+                images.forEach((image, i) => {
+                    image.style.transform = `translateX(${-index * 100}vw)`;
+                });
+            }
+
+            function handleScroll(event) {
+                if (event.deltaY > 0 && currentIndex < images.length - 1) {
+                    currentIndex++;
+                    showImage(currentIndex);
+                } else if (event.deltaY < 0 && currentIndex > 0) {
+                    currentIndex--;
+                    showImage(currentIndex);
+                }
+            }
+
+            showImage(currentIndex);
+            window.addEventListener("wheel", handleScroll);
+        });
+    </script>
 </body>
 </html>
