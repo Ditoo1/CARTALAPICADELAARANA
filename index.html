@@ -3,129 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La picá de la araña - Cargando...</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #1d1a45; /* COLOR FONDO */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden; /* Evitar el desplazamiento antes de cargar la página completa */
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        .loading-container {
-            text-align: center;
-            opacity: 1;
-            transition: opacity 1s ease-in-out;
-            z-index: 1; /* Asegura que la pantalla de carga esté por encima de la lista de imágenes */
-            margin-bottom: 20vh; /* Espacio en la parte inferior para centrar verticalmente */
-        }
-
-        .logo {
-            width: 100px; /* Ajusta el tamaño según tus necesidades */
-            height: auto;
-            margin-bottom: 20px;
-        }
-
-        .spinner-container {
-            position: relative;
-            width: 50px; /* Ajusta el tamaño del contenedor del círculo de carga */
-            height: 50px; /* Ajusta el tamaño del contenedor del círculo de carga */
-            margin-top: 10px; /* Ajusta la distancia desde la imagen */
-        }
-
-        .spinner {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border: 8px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top: 8px solid #fff;
-            width: 100%; /* Toma el 100% del contenedor */
-            height: 100%; /* Toma el 100% del contenedor */
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Estilo de la lista de imágenes después de la carga */
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: none; /* Inicialmente oculta la lista de imágenes */
-            flex-direction: row;
-            overflow-x: scroll;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            position: absolute; /* Asegura que la lista de imágenes se coloque correctamente */
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 0; /* Asegura que la lista de imágenes esté detrás de la pantalla de carga */
-            opacity: 0; /* Inicialmente, la opacidad está configurada a 0 para el efecto de transición */
-            transition: opacity 1s ease-in-out; /* Agregado para una transición suave de opacidad */
-        }
-
-        li {
-            flex: 0 0 100%;
-            scroll-snap-align: start;
-            margin: 10px;
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        /* Clase para mostrar la lista de imágenes después de la carga */
-        .loaded ul {
-            display: flex;
-            opacity: 1; /* Cambia la opacidad a 1 para mostrar las imágenes */
-        }
-    </style>
+    <title>La picá de la araña - Carta Digital -</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="loading-container">
-            <img class="logo" src="logo.png" alt="Logo">
-            <div class="spinner-container">
-                <div class="spinner"></div>
-            </div>
-        </div>
-
-        <ul id="image-list">
-            <li><img src="CARTA-01.jpg"></li>
-            <li><img src="CARTA-02.jpg"></li>
-            <!-- ... Resto de las imágenes ... -->
-            <li><img src="CARTA-12.jpg"></li>
-        </ul>
-    </div>
-
-    <script>
-        // Simula la carga de imágenes después de un tiempo (puedes reemplazar esto con tu lógica de carga real)
-        setTimeout(function() {
-            // Muestra la lista de imágenes y oculta la pantalla de carga
-            document.getElementById('image-list').classList.add('loaded');
-            document.querySelector('.loading-container').style.opacity = 0;
-        }, 3000); // Ajusta el tiempo de simulación según sea necesario
-    </script>
+    <ul>
+        <li><img src="CARTA-01.jpg"></li>
+        <li><img src="CARTA-02.jpg"></li>
+        <li><img src="CARTA-03.jpg"></li>
+        <li><img src="CARTA-04.jpg"></li>
+        <li><img src="CARTA-05.jpg"></li>
+        <li><img src="CARTA-06.jpg"></li>
+        <li><img src="CARTA-07.jpg"></li>
+        <li><img src="CARTA-08.jpg"></li>
+        <li><img src="CARTA-09.jpg"></li>
+        <li><img src="CARTA-10.jpg"></li>
+        <li><img src="CARTA-11.jpg"></li>
+        <li><img src="CARTA-12.jpg"></li>
+    </ul>
 </body>
 </html>
