@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La picá de la araña - Carta Digital -</title>
+    <title>La picá de la araña - Carta Digital</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #1d1a45; /*COLOR FONDO */
+            background-color: #1d1a45;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden; /* Evita la barra de desplazamiento vertical */
         }
 
         ul {
@@ -18,35 +21,72 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            height: 100vh; /* Establece la altura del contenedor al 100% de la ventana */
+            overflow-y: scroll; /* Habilita el desplazamiento vertical en el contenedor */
         }
 
         li {
             width: 100%;
-            max-width: 800px; /* ANCHO MAXIMO */
+            max-width: 800px;
             margin: 10px;
+            text-align: center;
+            opacity: 0; /* Inicialmente oculta los elementos */
+            transform: translateY(50px); /* Desplaza los elementos hacia abajo */
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        li.active {
+            opacity: 1; /* Muestra los elementos cuando están activos */
+            transform: translateY(0);
         }
 
         img {
             width: 100%;
             height: auto;
-            border-radius: 10px; /* ROUND BORDER */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin-top: 8px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffd700;
         }
     </style>
 </head>
 <body>
-    <ul>
-        <li><img src="CARTA-01.jpg"></li>
-        <li><img src="CARTA-02.jpg"></li>
-        <li><img src="CARTA-03.jpg"></li>
-        <li><img src="CARTA-04.jpg"></li>
-        <li><img src="CARTA-05.jpg"></li>
-        <li><img src="CARTA-06.jpg"></li>
-        <li><img src="CARTA-07.jpg"></li>
-        <li><img src="CARTA-08.jpg"></li>
-        <li><img src="CARTA-09.jpg"></li>
-        <li><img src="CARTA-10.jpg"></li>
-        <li><img src="CARTA-11.jpg"></li>
-        <li><img src="CARTA-12.jpg"></li>
+    <ul id="slider">
+        <li class="slide">
+            <a href="plato-1.html">
+                <img src="CARTA-01.png" alt="Plato 1">
+                <p>Descripción del Plato 1</p>
+            </a>
+        </li>
+        <!-- Agrega enlaces y descripciones para cada plato -->
+        <!-- ... -->
     </ul>
+
+    <script>
+        // Función para activar los elementos cuando están en el área visible
+        function activateElements() {
+            const elements = document.querySelectorAll('.slide');
+            elements.forEach((element) => {
+                const rect = element.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                if (rect.top <= windowHeight / 1.5 && rect.bottom >= 0) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Activa los elementos al cargar la página
+        activateElements();
+
+        // Activa los elementos al hacer scroll
+        window.addEventListener('scroll', activateElements);
+    </script>
 </body>
 </html>
