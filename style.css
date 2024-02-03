@@ -1,0 +1,159 @@
+body {
+  background-color: #131313;
+}
+
+
+.scrollable-tabs-container {
+  font-family: "Dosis", sans-serif;
+  background: #121212;
+  max-width: 700px;
+  margin: 16px auto;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollable-tabs-container ul {
+  display: flex;
+  gap: 16px;
+  padding: 12px 24px;
+  margin: 0;
+  list-style: none;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollable-tabs-container ul::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollable-tabs-container a {
+  color: #dddddd;
+  text-decoration: none;
+  background-color: #333;
+  padding: 4px 24px;
+  display: inline-block;
+  border-radius: 4px;
+  user-select: none;
+  white-space: nowrap;
+  font-weight: bold;
+  box-shadow: 0px 5px 5px black
+}
+
+.scrollable-tabs-container a.active {
+  background: #fff;
+  color: #000;
+}
+
+.seccion-comida .platos {
+  font-family: "Dosis", sans-serif;
+  line-height:1.4em;
+  color: rgb(255, 255, 255);
+  user-select: none;
+}
+
+.seccion-tragos .platos {
+  font-family: "Dosis", sans-serif;
+  line-height:1.4em;
+  color: rgb(255, 255, 255);
+  user-select: none;
+}
+
+.seccion-bebidas {
+  font-family: "Dosis", sans-serif;
+  line-height:1.4em;
+  color: rgb(255, 255, 255);
+  user-select: none;
+  margin-left: 10%;
+  margin-top: 8%;
+}
+
+.seccion-bebidas h2 {
+  font-family: "Dosis", sans-serif;
+  line-height:1.4em;
+  color: rgb(255, 255, 255);
+  user-select: none;
+}
+
+p {
+  margin-top:-10px;
+  color: #dadada;
+  font-size: 18px;
+  user-select: none;
+}
+i {
+  font-family: Rubik;
+  color: #e2e2e2;
+  font-weight: bold;
+  user-select: none;
+}
+hr {  
+  margin-right: 30%;
+  margin-bottom: 5%;
+}
+h2 {
+  margin-bottom: 0%;
+}
+img {
+    padding: 5px;
+    max-width: 99%;
+    margin-bottom: -6%;
+    margin-top: -5%;
+}
+.vl {
+  border-left: 1px solid rgb(255, 255, 255);
+  height: 160px;
+  margin-top: -50%;
+  margin-left: -5%;
+}
+.switch-field {
+  display: flex;
+  margin-bottom: -4%;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6%;
+  font-weight: bold;
+}
+
+.switch-field input {
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+}
+
+.switch-field label {
+  font-family: Dosis;
+  background-color: #333333;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  line-height: .8;
+  text-align: center;
+  padding: 8px 40px;
+  margin-right: -1px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: #000;
+}
+
+.switch-field label:hover {
+  cursor: pointer;
+}
+
+.switch-field input:checked + label {
+  background-color: #ffffff;
+  box-shadow: none;
+  color: black;
+}
+
+.switch-field label:first-of-type {
+  border-radius: 12px 0 0 12px;
+}
+
+.switch-field label:last-of-type {
+  border-radius: 0 12px 12px 0;
+}
