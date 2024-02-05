@@ -95,6 +95,11 @@ hr {
 h2 {
   margin-bottom: 0%;
 }
+h3 {
+  margin-top: 0.2%;
+  margin-bottom: 0.2%;
+  color: rgb(170, 170, 170);
+}
 img {
     padding: 5px;
     max-width: 99%;
