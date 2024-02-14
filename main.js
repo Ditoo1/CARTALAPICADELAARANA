@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const seccionComida = document.querySelector(".seccion-comida");
     const seccionBebidas = document.querySelector(".seccion-bebidas");
     const seccionTragos = document.querySelector(".seccion-tragos");
+    const seccionNoche = document.querySelector(".seccion-noche");
 
     const removeAllActiveClasses = () => {
         tabs.forEach((tab) => {
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         seccionComida.style.display = "none";
         seccionBebidas.style.display = "none";
         seccionTragos.style.display = "none";
+        seccionNoche.style.display = "none";
     };
 
     // Ocultar todas las secciones al inicio
@@ -46,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Agregar event listener para el cambio del switch
+    // Agregar event listener para el cambio del switch principal
     const switchField = document.querySelector(".switch-field");
     switchField.addEventListener("change", (event) => {
         const selectedValue = event.target.value;
@@ -64,8 +66,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 break;
             case "tragos":
                 seccionTragos.style.display = "block";
-                // Añadir la clase 'cocteleriaclasica' al cambiar a la sección 'seccionTragos'
                 document.querySelector(".cocteleriaclasica").style.display = "block";
+                break;
+            case "noche":
+                seccionNoche.style.display = "block";
+                break;
+            default:
+                // Manejar cualquier otro caso según sea necesario
+                break;
+        }
+    });
+
+    // Agregar event listener para el cambio del switch adicional (noche)
+    const switchField2 = document.querySelector(".switch-field2");
+    switchField2.addEventListener("change", (event) => {
+        const selectedValue = event.target.value;
+        hideAllSecciones();
+        removeAllActiveClasses();
+
+        switch (selectedValue) {
+            case "noche":
+                seccionNoche.style.display = "block";
                 break;
             default:
                 // Manejar cualquier otro caso según sea necesario
