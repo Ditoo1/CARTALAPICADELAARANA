@@ -154,7 +154,7 @@ img {
 }
 .switch-field {
   display: flex;
-  margin-bottom: -4%;
+  margin-bottom: vh;
   overflow: hidden;
   align-items: center;
   justify-content: center;
