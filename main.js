@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const seccionBebidas = document.querySelector(".seccion-bebidas");
     const seccionTragos = document.querySelector(".seccion-tragos");
     const seccionNoche = document.querySelector(".seccion-noche");
+    const coctelesclasicos = document.getElementById("9");
 
     const removeAllActiveClasses = () => {
         tabs.forEach((tab) => {
@@ -66,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 break;
             case "tragos":
                 seccionTragos.style.display = "block";
+                coctelesclasicos.classList = "active";
                 document.querySelector(".cocteleriaclasica").style.display = "block";
                 break;
             case "noche":
