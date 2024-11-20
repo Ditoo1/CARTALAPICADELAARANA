@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const seccionComida = document.querySelector(".seccion-comida");
     const seccionBebidas = document.querySelector(".seccion-bebidas");
     const seccionTragos = document.querySelector(".seccion-tragos");
-    const seccionVinos = document.querySelector(".seccion-vinos");
     const seccionNoche = document.querySelector(".seccion-noche");
     const coctelesclasicos = document.getElementById("8x");
 
@@ -24,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
         hideAllPlatosSections();
         seccionComida.style.display = "none";
         seccionBebidas.style.display = "none";
-        seccionVinos.style.display = "none";
         seccionTragos.style.display = "none";
         seccionNoche.style.display = "none";
     };
@@ -66,9 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 break;
             case "bebidas":
                 seccionBebidas.style.display = "block";
-                break;
-            case "vinos":
-                seccionVinos.style.display = "block";
                 break;
             case "tragos":
                 seccionTragos.style.display = "block";
