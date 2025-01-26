@@ -128,9 +128,33 @@ i {
   user-select: none;
 }
 hr {  
+  background: linear-gradient(to right, rgb(255, 255, 255), #131313);
+  height: 1px;
+  border: 0;
   margin-right: 30%;
   margin-bottom: 5%;
 }
+hr.style-seven {
+  overflow: visible; /* Para compatibilidad */
+  height: 2px; /* Ajusta el grosor de la línea */
+  border: none; /* Elimina bordes predeterminados */
+  background: linear-gradient(to right, white, #131313 50%, white); /* Degradado lineal */
+  position: relative; /* Necesario para pseudo-elemento */
+  margin: 30px 10%; /* Margen ajustado */
+}
+
+hr.style-seven::after {
+  content: "•"; /* Punto en el centro */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px; /* Tamaño del punto */
+  color: white; /* Color del punto */
+  background: #131313; /* Fondo para que destaque */
+  padding: 0 5px; /* Espaciado opcional */
+}
+
 h2 {
   margin-bottom: 0%;
 
@@ -252,4 +276,9 @@ img {
 
 .switch-field2 label {
   border-radius: 12px;
+}
+
+
+h2.segundo {
+margin-bottom: -6%;
 }
