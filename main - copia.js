@@ -38,20 +38,17 @@ document.addEventListener("DOMContentLoaded", () => {
     tabs[0].classList.add("active");
     seccionComida.style.display = "block";
 
-    tabs.forEach((tab) => {
+    tabs.forEach((tab, index) => {
         tab.addEventListener("click", (event) => {
-            event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+            event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
             removeAllActiveClasses();
             hideAllPlatosSections();
-    
+
             tab.classList.add("active");
-            const targetSectionId = tab.getAttribute("href").substring(1);  // Obtiene el ID de la sección
-            const targetSection = document.getElementById(targetSectionId);
-            if (targetSection) {
-                targetSection.style.display = "block";
-            }
+            platosSections[index].style.display = "block";
         });
     });
+
     // Agregar event listener para el cambio del switch principal
     const switchField = document.querySelector(".switch-field");
     switchField.addEventListener("change", (event) => {
