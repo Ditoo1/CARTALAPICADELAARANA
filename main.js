@@ -82,20 +82,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Agregar event listener para el cambio del switch adicional (noche)
-    const switchField2 = document.querySelector(".switch-field2");
-    switchField2.addEventListener("change", (event) => {
-        const selectedValue = event.target.value;
-        hideAllSecciones();
-        removeAllActiveClasses();
-
-        switch (selectedValue) {
-            case "noche":
-                seccionNoche.style.display = "block";
-                break;
-            default:
-                // Manejar cualquier otro caso según sea necesario
-                break;
-        }
-    });
 });
