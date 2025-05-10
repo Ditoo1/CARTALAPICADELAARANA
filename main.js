@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const seccionComida = document.querySelector(".seccion-comida");
     const seccionBebidas = document.querySelector(".seccion-bebidas");
     const seccionTragos = document.querySelector(".seccion-tragos");
-    const seccionNoche = document.querySelector(".seccion-noche");
     const coctelesclasicos = document.getElementById("8x");
 
     const removeAllActiveClasses = () => {
@@ -24,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
         seccionComida.style.display = "none";
         seccionBebidas.style.display = "none";
         seccionTragos.style.display = "none";
-        seccionNoche.style.display = "none";
     };
 
     // Ocultar todas las secciones al inicio
@@ -72,9 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 seccionTragos.style.display = "block";
                 coctelesclasicos.classList = "active";
                 document.querySelector("#autor").style.display = "block";
-                break;
-            case "noche":
-                seccionNoche.style.display = "block";
                 break;
             default:
                 // Manejar cualquier otro caso según sea necesario
